@@ -1,0 +1,57 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      release-version:
+        description: 'Release Version'
+        type: string
+        required: true
+
+env:
+  RELEASE_VERSION: ${{ github.event.inputs.release-version }}
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Template
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Git Config
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+
+      - name: Create Tag
+        run: |
+          git tag -a ${{ env.RELEASE_VERSION }} -m "Add tag ${{ env.RELEASE_VERSION }}"
+          git push origin --tags
+
+      - name: Check Beta
+        id: check-beta
+        run: |
+          beta=$(echo "${{ env.RELEASE_VERSION }}" | sed -r 's/^.*([A|B].*)$/\1/')
+          isBeta="false"
+          prerelease=""
+          if [ ! -z "$beta" ]; then isBeta="true"; prerelease="--prerelease"; fi;
+          echo "is-beta=$isBeta" >> $GITHUB_OUTPUT
+          echo "prerelease=$prerelease" >> $GITHUB_OUTPUT
+
+      - name: Replace Version In Template
+        run: |
+          sed -i "s/\${interlok-version}/${{ env.RELEASE_VERSION }}/g" .github/workflows/notes.md
+          intVersion=$(echo "${{ env.RELEASE_VERSION }}" | sed -r 's/^(.*)[A|B].*$/\1/')
+          intVersion=${intVersion//./}
+          sed -i "s/\${interlok-version-int}/$intVersion/g" .github/workflows/notes.md
+
+      - name: Create Release
+        run: |
+          gh release create ${{ env.RELEASE_VERSION }} -F .github/workflows/notes.template.md ${{ steps.check-beta.outputs.prerelease }} #'./some-possible/extra-file.zip'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
