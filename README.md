@@ -1,4 +1,4 @@
-# interlok-release
+# Interlok Release
 
 This is the Interlok releases repository where you can see and download Interlok and its optional components.
 
