@@ -40,6 +40,7 @@ jobs:
           isBeta="false"
           prerelease=""
           if [ ! -z "$beta" ]; then isBeta="true"; prerelease="--prerelease"; fi;
+          echo "Pre-release=$prerelease"
           echo "is-beta=$isBeta" >> $GITHUB_OUTPUT
           echo "prerelease=$prerelease" >> $GITHUB_OUTPUT
 
