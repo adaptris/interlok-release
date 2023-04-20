@@ -45,10 +45,10 @@ jobs:
 
       - name: Replace Version In Template
         run: |
-          sed -i "s/\${interlok-version}/${{ env.RELEASE_VERSION }}/g" .github/workflows/notes.md
+          sed -i "s/\${interlok-version}/${{ env.RELEASE_VERSION }}/g" .github/workflows/notes.template.md
           intVersion=$(echo "${{ env.RELEASE_VERSION }}" | sed -r 's/^(.*)[A|B].*$/\1/')
           intVersion=${intVersion//./}
-          sed -i "s/\${interlok-version-int}/$intVersion/g" .github/workflows/notes.md
+          sed -i "s/\${interlok-version-int}/$intVersion/g" .github/workflows/notes.template.md
 
       - name: Create Release
         run: |
