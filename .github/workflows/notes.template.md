@@ -61,7 +61,7 @@ or alternatively:
 - Download and unzip [interlok-installer-linux.tar.gz](https://nexus.adaptris.net/nexus/service/local/repositories/releases/content/com/adaptris/interlok-installer/${interlok-version}-RELEASE/interlok-installer-${interlok-version}-RELEASE-linux.tar.gz)
 Execute \bin\interlok-installer
 - Follow the installer instructions
-- 
+
 # macOS Notes
 
 The macOS install options are:
