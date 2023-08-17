@@ -8,7 +8,6 @@ You can find the [release notes here](https://interlok.adaptris.net/interlok-doc
 
 - [base-filesystem.zip](https://nexus.adaptris.net/nexus/service/local/repositories/releases/content/com/adaptris/interlok-base-filesystem/1.1.0/interlok-base-filesystem-1.1.0.zip)
 - [base-filesystem-with-templates.zip](https://nexus.adaptris.net/nexus/service/local/repositories/releases/content/com/adaptris/interlok-base-filesystem/1.1.0/interlok-base-filesystem-1.1.0-with-templates.zip)
-- [example-xml.zip](https://development.adaptris.net/installers/Interlok/${interlok-version}/example-xml.zip)
 - [interlok-installer-cmd.zip](https://nexus.adaptris.net/nexus/service/local/repositories/releases/content/com/adaptris/interlok-installer-cmd/${interlok-version}-RELEASE/interlok-installer-cmd-${interlok-version}-RELEASE.zip)
 - [interlok-installer-linux.jar](https://nexus.adaptris.net/nexus/service/local/repositories/releases/content/com/adaptris/interlok-installer/${interlok-version}-RELEASE/interlok-installer-${interlok-version}-RELEASE-linux.jar)
 - [interlok-installer-linux.tar.gz](https://nexus.adaptris.net/nexus/service/local/repositories/releases/content/com/adaptris/interlok-installer/${interlok-version}-RELEASE/interlok-installer-${interlok-version}-RELEASE-linux.tar.gz)
@@ -92,5 +91,4 @@ These downloads for intended for people who wish to upgrade/install without runn
 
 If you are selecting the non-installer option, you may want to read our documentation on [running Interlok directly from the commandline](https://interlok.adaptris.net/interlok-docs/#/pages/overview/adapter-commandline?id=running-directly-from-the-commandline)
 
-- [example-xml.zip](https://development.adaptris.net/installers/Interlok/${interlok-version}/example-xml.zip) : The files that would usually reside in the docs/example-xml directory
 - [base-filesystem.zip](https://nexus.adaptris.net/nexus/service/local/repositories/releases/content/com/adaptris/interlok-base-filesystem/1.1.0/interlok-base-filesystem-1.1.0.zip) : The base filesystem
