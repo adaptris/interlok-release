@@ -36,7 +36,7 @@ jobs:
       - name: Check Beta
         id: check-beta
         run: |
-          beta=$(echo "${{ env.RELEASE_VERSION }}" | sed -r 's/^.*([A|B]?.*)$/\1/')
+          beta=$(echo "${{ env.RELEASE_VERSION }}" | sed -r 's/^[^A|B]*([A|B]?.*)$/\1/')
           isBeta="false"
           prerelease=""
           if [ ! -z "$beta" ]; then isBeta="true"; prerelease="--prerelease"; fi;
