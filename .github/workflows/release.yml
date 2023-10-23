@@ -54,7 +54,7 @@ jobs:
           docVersion=
           javaVersion=17
           baseFsVersion="1.2.0"
-          if (( $majorVersion < 5 )); then docVersion="v$majorVersion"; javaVersion=11; baseFsVersion1="1.1.0"; fi;
+          if (( $majorVersion < 5 )); then docVersion="v$majorVersion"; javaVersion=11; baseFsVersion="1.1.0"; fi;
           sed -i "s/\${doc-version}/$docVersion/g" .github/workflows/notes.template.md
           sed -i "s/\${java-version}/$javaVersion/g" .github/workflows/notes.template.md
           sed -i "s/\${base-fs-version}/$baseFsVersion/g" .github/workflows/notes.template.md
