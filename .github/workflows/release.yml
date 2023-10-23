@@ -50,6 +50,12 @@ jobs:
           intVersion=$(echo "${{ env.RELEASE_VERSION }}" | sed -r 's/^(.*)[A|B].*$/\1/')
           intVersion=${intVersion//./}
           sed -i "s/\${interlok-version-int}/$intVersion/g" .github/workflows/notes.template.md
+          majorVersion=${intVersion:0:1}
+          docVersion=
+          javaVersion=17
+          if [ $majorVersion < 5 ]; then docVersion="v$majorVersion"; javaVersion=11; fi;
+          sed -i "s/\${doc-version}/$docVersion/g" .github/workflows/notes.template.md
+          sed -i "s/\${java-version}/$javaVersion/g" .github/workflows/notes.template.md
 
       - name: Create Release
         run: |
