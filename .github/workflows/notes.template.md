@@ -2,7 +2,7 @@
 
 This is the Interlok download page; you have the chance to download the following items.
 
-You can find the [release notes here](https://interlok.adaptris.net/interlok-docs/#/pages/overview/changelog?id=version-${interlok-version-int}) and some [specific installation instructions here](https://interlok.adaptris.net/interlok-docs/#/pages/overview/adapter-installation). Have Fun !
+You can find the [release notes here](https://interlok.adaptris.net/interlok-docs${java-version}/#/pages/overview/changelog?id=version-${interlok-version-int}) and some [specific installation instructions here](https://interlok.adaptris.net/interlok-docs${java-version}/#/pages/overview/adapter-installation). Have Fun !
 
 # Files
 
@@ -24,14 +24,14 @@ This project is hosted publicly at [GitHub](https://github.com/adaptris/interlok
 
 # Before you start...
 
-- You will need to install Java 11 (or later) to successfully run Interlok.
-- However, Java 11 is currently required if you wish to use the java installer.
+- You will need to install Java ${java-version} (or later) to successfully run Interlok.
+- However, Java ${java-version} is currently required if you wish to use the java installer.
   - [Azul Systems](https://www.azul.com/downloads/zulu-community/) offer pre-built images of OpenJDK for most platforms; they also have a JavaFX enabled bundle
   - [Amazon](https://aws.amazon.com/corretto/) offer pre-built images of OpenJDK for some platforms
   - [AdoptOpenJDK](https://adoptopenjdk.net/) offer pre-built images of OpenJDK for some platforms
   - [OpenJDK](https://openjdk.java.net/install) have pre-built images for Linux systems and Windows (latest versions only)
   - You can still download one from [Oracle](http://www.oracle.com/technetwork/java/index.html) or contact your OS manufacter
-- More information regarding installation can be found in our [interlok-docs](https://interlok.adaptris.net/interlok-docs/#/pages/overview/adapter-installation).
+- More information regarding installation can be found in our [interlok-docs](https://interlok.adaptris.net/interlok-docs${java-version}/#/pages/overview/adapter-installation).
 
 # Windows Notes
 
@@ -89,6 +89,6 @@ Command line installer for Interlok. This automatically downloads the selected o
 
 These downloads for intended for people who wish to upgrade/install without running an installer.
 
-If you are selecting the non-installer option, you may want to read our documentation on [running Interlok directly from the commandline](https://interlok.adaptris.net/interlok-docs/#/pages/overview/adapter-commandline?id=running-directly-from-the-commandline)
+If you are selecting the non-installer option, you may want to read our documentation on [running Interlok directly from the commandline](https://interlok.adaptris.net/interlok-docs${java-version}/#/pages/overview/adapter-commandline?id=running-directly-from-the-commandline)
 
 - [base-filesystem.zip](https://nexus.adaptris.net/nexus/service/local/repositories/releases/content/com/adaptris/interlok-base-filesystem/1.1.0/interlok-base-filesystem-1.1.0.zip) : The base filesystem
