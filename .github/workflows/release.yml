@@ -53,7 +53,7 @@ jobs:
           majorVersion=${intVersion:0:1}
           docVersion=
           javaVersion=17
-          if [ $majorVersion < 5 ]; then docVersion="v$majorVersion"; javaVersion=11; fi;
+          if (( $majorVersion < 5 )); then docVersion="v$majorVersion"; javaVersion=11; fi;
           sed -i "s/\${doc-version}/$docVersion/g" .github/workflows/notes.template.md
           sed -i "s/\${java-version}/$javaVersion/g" .github/workflows/notes.template.md
 
