@@ -1,0 +1,68 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Release
+
+on:
+  workflow_call:
+    secrets:
+      GITHUB_TOKEN:
+        required: true
+    inputs:
+      release-version:
+        description: 'Release Version (e.g. 4.9.0B1 or 4.9.0)'
+        type: string
+        required: true
+env:
+  RELEASE_VERSION: ${{ github.event.inputs.release-version }}
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Template
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Git Config
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+
+      - name: Create Tag
+        run: |
+          git tag -a ${{ env.RELEASE_VERSION }} -m "Add tag ${{ env.RELEASE_VERSION }}"
+          git push origin --tags
+
+      - name: Check Beta
+        id: check-beta
+        run: |
+          beta=$(echo "${{ env.RELEASE_VERSION }}" | sed -r 's/^[^A|B]*([A|B]?.*)$/\1/')
+          isBeta="false"
+          prerelease=""
+          if [ ! -z "$beta" ]; then isBeta="true"; prerelease="--prerelease"; fi;
+          echo "Pre-release=$prerelease"
+          echo "is-beta=$isBeta" >> $GITHUB_OUTPUT
+          echo "prerelease=$prerelease" >> $GITHUB_OUTPUT
+
+      - name: Replace Version In Template
+        run: |
+          sed -i "s/\${interlok-version}/${{ env.RELEASE_VERSION }}/g" .github/workflows/notes.template.md
+          intVersion=$(echo "${{ env.RELEASE_VERSION }}" | sed -r 's/^(.*)[A|B].*$/\1/')
+          intVersion=${intVersion//./}
+          sed -i "s/\${interlok-version-int}/$intVersion/g" .github/workflows/notes.template.md
+          majorVersion=${intVersion:0:1}
+          docVersion=
+          javaVersion=17
+          baseFsVersion="1.2.0"
+          if (( $majorVersion < 5 )); then docVersion="v$majorVersion"; javaVersion=11; baseFsVersion="1.1.0"; fi;
+          sed -i "s/\${doc-version}/$docVersion/g" .github/workflows/notes.template.md
+          sed -i "s/\${java-version}/$javaVersion/g" .github/workflows/notes.template.md
+          sed -i "s/\${base-fs-version}/$baseFsVersion/g" .github/workflows/notes.template.md
+
+      - name: Create Release
+        run: |
+          gh release create ${{ env.RELEASE_VERSION }} -F .github/workflows/notes.template.md ${{ steps.check-beta.outputs.prerelease }} #'./some-possible/extra-file.zip'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
