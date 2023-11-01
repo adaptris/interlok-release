@@ -19,5 +19,3 @@ jobs:
     uses: adaptris/interlok-release/.github/workflows/workflow-call-release.yml@main
     with:
       interlok-version: ${{ github.event.inputs.interlok-version }}
-    secrets:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

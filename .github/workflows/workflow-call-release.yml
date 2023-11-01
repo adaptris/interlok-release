@@ -4,9 +4,6 @@ name: Release
 
 on:
   workflow_call:
-    secrets:
-      GITHUB_TOKEN:
-        required: true
     inputs:
       release-version:
         description: 'Release Version (e.g. 4.9.0B1 or 4.9.0)'
