@@ -45,21 +45,21 @@ jobs:
 
       - name: Replace Version In Template
         run: |
-          sed -i "s/\${interlok-version}/${{ env.RELEASE_VERSION }}/g" ${{ github.action_path }}/.github/workflows/notes.template.md
+          sed -i "s/\${interlok-version}/${{ env.RELEASE_VERSION }}/g" $GITHUB_ACTION_PATH/.github/workflows/notes.template.md
           intVersion=$(echo "${{ env.RELEASE_VERSION }}" | sed -r 's/^(.*)[A|B].*$/\1/')
           intVersion=${intVersion//./}
-          sed -i "s/\${interlok-version-int}/$intVersion/g" ${{ github.action_path }}/.github/workflows/notes.template.md
+          sed -i "s/\${interlok-version-int}/$intVersion/g" $GITHUB_ACTION_PATH/.github/workflows/notes.template.md
           majorVersion=${intVersion:0:1}
           docVersion=
           javaVersion=17
           baseFsVersion="1.2.0"
           if (( $majorVersion < 5 )); then docVersion="v$majorVersion"; javaVersion=11; baseFsVersion="1.1.0"; fi;
-          sed -i "s/\${doc-version}/$docVersion/g" ${{ github.action_path }}/.github/workflows/notes.template.md
-          sed -i "s/\${java-version}/$javaVersion/g" ${{ github.action_path }}/.github/workflows/notes.template.md
-          sed -i "s/\${base-fs-version}/$baseFsVersion/g" ${{ github.action_path }}/.github/workflows/notes.template.md
+          sed -i "s/\${doc-version}/$docVersion/g" $GITHUB_ACTION_PATH/.github/workflows/notes.template.md
+          sed -i "s/\${java-version}/$javaVersion/g" $GITHUB_ACTION_PATH/.github/workflows/notes.template.md
+          sed -i "s/\${base-fs-version}/$baseFsVersion/g" $GITHUB_ACTION_PATH/.github/workflows/notes.template.md
 
       - name: Create Release
         run: |
-          gh release create ${{ env.RELEASE_VERSION }} -F ${{ github.action_path }}/.github/workflows/notes.template.md ${{ steps.check-beta.outputs.prerelease }} #'./some-possible/extra-file.zip'
+          gh release create ${{ env.RELEASE_VERSION }} -F $GITHUB_ACTION_PATH/.github/workflows/notes.template.md ${{ steps.check-beta.outputs.prerelease }} #'./some-possible/extra-file.zip'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
