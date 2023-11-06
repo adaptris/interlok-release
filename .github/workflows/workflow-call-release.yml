@@ -60,6 +60,6 @@ jobs:
 
       - name: Create Release
         run: |
-          gh release create ${{ env.RELEASE_VERSION }} -F .github/workflows/notes.template.md ${{ steps.check-beta.outputs.prerelease }} #'./some-possible/extra-file.zip'
+          gh release create ${{ env.RELEASE_VERSION }} -F ${{ github.action_path }}/notes.template.md ${{ steps.check-beta.outputs.prerelease }} #'./some-possible/extra-file.zip'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
