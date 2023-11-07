@@ -10,9 +10,6 @@ on:
         type: string
         required: true
 
-env:
-  RELEASE_VERSION: ${{ github.event.inputs.release-version }}
-
 jobs:
   release:
     name: Release
