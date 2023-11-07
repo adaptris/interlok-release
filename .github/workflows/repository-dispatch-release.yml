@@ -4,7 +4,8 @@ name: Release
 
 on:
   repository_dispatch:
-    types: repository-dispatch-release
+    types: 
+      - repository-dispatch-release
 
 jobs:
   release:
