@@ -12,4 +12,4 @@ jobs:
     name: Release
     uses: adaptris/interlok-release/.github/workflows/workflow-call-release.yml@main
     with:
-      release-version: ${{ github.event.client_payload.release-version }}
+      release-version: "${{ github.event.client_payload.release-version }}"
