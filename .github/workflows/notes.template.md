@@ -38,13 +38,13 @@ This project is hosted publicly at [GitHub](https://github.com/adaptris/interlok
 The Windows install options are:
 
 - Download [interlok-installer-win.jar](https://nexus.adaptris.net/nexus/service/local/repositories/releases/content/com/adaptris/interlok-installer/${interlok-version}-RELEASE/interlok-installer-${interlok-version}-RELEASE-win.jar)
-java -jar ./interlok-installer-win.jar
+- `java -jar ./interlok-installer-win.jar`
 - Follow the installer instructions
 
 or alternatively:
 
 - Download and unzip [interlok-installer-win.zip](https://nexus.adaptris.net/nexus/service/local/repositories/releases/content/com/adaptris/interlok-installer/${interlok-version}-RELEASE/interlok-installer-${interlok-version}-RELEASE-win.zip)
-Execute \bin\interlok-installer.bat
+- Execute \bin\interlok-installer.bat
 - Follow the installer instructions
 
 # Linux Notes
@@ -52,13 +52,13 @@ Execute \bin\interlok-installer.bat
 The Linux install options are:
 
 - Download [interlok-installer-linux.jar](https://nexus.adaptris.net/nexus/service/local/repositories/releases/content/com/adaptris/interlok-installer/${interlok-version}-RELEASE/interlok-installer-${interlok-version}-RELEASE-linux.jar)
-java -jar ./interlok-installer-linux.jar
+- `java -jar ./interlok-installer-linux.jar`
 - Follow the installer instructions
 
 or alternatively:
 
 - Download and unzip [interlok-installer-linux.tar.gz](https://nexus.adaptris.net/nexus/service/local/repositories/releases/content/com/adaptris/interlok-installer/${interlok-version}-RELEASE/interlok-installer-${interlok-version}-RELEASE-linux.tar.gz)
-Execute \bin\interlok-installer
+- Execute \bin\interlok-installer
 - Follow the installer instructions
 
 # macOS Notes
@@ -66,13 +66,13 @@ Execute \bin\interlok-installer
 The macOS install options are:
 
 - Download [interlok-installer-mac.jar](https://nexus.adaptris.net/nexus/service/local/repositories/releases/content/com/adaptris/interlok-installer/${interlok-version}-RELEASE/interlok-installer-${interlok-version}-RELEASE-mac.jar)
-java -jar ./interlok-installer-mac.jar
+- `java -jar ./interlok-installer-mac.jar`
 - Follow the installer instructions
 
 or alternatively:
 
 - Download and unzip [interlok-installer-mac.tar.gz](https://nexus.adaptris.net/nexus/service/local/repositories/releases/content/com/adaptris/interlok-installer/${interlok-version}-RELEASE/interlok-installer-${interlok-version}-RELEASE-mac.tar.gz)
-Execute \bin\interlok-installer
+- Execute \bin\interlok-installer
 - Follow the installer instructions
 
 # Command Line Installer Notes
