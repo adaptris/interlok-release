@@ -92,3 +92,9 @@ These downloads for intended for people who wish to upgrade/install without runn
 If you are selecting the non-installer option, you may want to read our documentation on [running Interlok directly from the commandline](https://interlok.adaptris.net/interlok-docs${doc-version}/#/pages/overview/adapter-commandline?id=running-directly-from-the-commandline)
 
 - [base-filesystem.zip](https://nexus.adaptris.net/nexus/service/local/repositories/releases/content/com/adaptris/interlok-base-filesystem/${base-fs-version}/interlok-base-filesystem-${base-fs-version}.zip) : The base filesystem
+
+# Docker Notes
+
+You can access the Interlok Docker and Interlok Docker Base images on Docher Hub:
+- https://hub.docker.com/r/adaptris/interlok/tags?name=${interlok-version}
+- https://hub.docker.com/r/adaptris/interlok-base/tags?name=${interlok-version}
